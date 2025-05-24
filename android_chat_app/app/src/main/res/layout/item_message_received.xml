@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tvMessageContentReceived"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/bg_message_received"
+        android:padding="10dp"
+        android:textColor="@android:color/black"
+        android:text="This is a received message." />
+
+    <TextView
+        android:id="@+id/tvTimestampReceived"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:textColor="@color/grey_timestamp"
+        android:layout_alignStart="@id/tvMessageContentReceived"
+        android:layout_below="@id/tvMessageContentReceived"
+        android:layout_marginTop="2dp"
+        android:text="10:00 AM"/>
+</RelativeLayout>

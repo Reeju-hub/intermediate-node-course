@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Room - User: {{ current_username }} (ID: {{ current_user_id }})</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="chat-container">
+        <div id="user-list-container">
+            <h3>Users</h3>
+            <ul id="user-list">
+                <!-- User list will be populated here by chat.js -->
+            </ul>
+        </div>
+        <div id="chat-area">
+            <h3>Chat with: <span id="current-chat-partner-name">Nobody</span></h3>
+            <input type="hidden" id="current-recipient-id" value="">
+            <!-- current_user_id and current_username are passed to JS via script block below -->
+
+            <div id="messages">
+                <p>Select a user from the list to start chatting.</p>
+            </div>
+            <div id="input-area">
+                <input type="text" id="messageInput" placeholder="Type a message..." disabled>
+                <button id="sendButton" disabled>Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script>
+        // Pass Flask variables to JavaScript
+        const currentUserId = {{ current_user_id|tojson }};
+        const currentUsername = {{ current_username|tojson }};
+    </script>
+    <script src="{{ url_for('static', filename='chat.js') }}"></script>
+</body>
+</html>
